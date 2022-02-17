@@ -11,7 +11,7 @@ In essence, reflection allows you to attach a DLL to your Linx solution, without
 
 # Setup
 
-- Install Linx Designer (https://linx.software) and open the solution "UpviseConnect". 
+- Install Linx Designer (https://linx.software) and open the solution "UpviseConnect". This solution was built with Linx 5.21.
 - You will need to provide the following Settings: "UpviseEmail" and "UpvisePassword".
 - Download the SDK from the github link above and extract it on your computer. Then you will need to provide the DLL path in the setting "UpviseDLLPath"
 
