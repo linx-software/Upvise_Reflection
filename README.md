@@ -1,7 +1,3 @@
-# VERY IMPORTANT NOTE:
-
-This solution currently is based on the Upvise DLL v1.0.2. This version is still supported with Upvise. The new version requires .NET 6, which is not available on Linx 5. Linx 6 will be released soon and then this solution will be updated.
-
 # Upvise Reflection Integration
 Using reflection, you can use DLL's provided by third parties in order to perform their specific integration. As an example, we are integrating with Upvise using their DLL. Upvise is a mobile cloud solution that enables you to sync and share your company data between your mobile devices, your cloud account, and with multiple users in a team. You can read more, and register on www.upvise.com
 
@@ -15,7 +11,7 @@ In essence, reflection allows you to attach a DLL to your Linx solution, without
 
 # Setup
 
-- Install Linx Designer (https://linx.software) and open the solution "UpviseConnect". This solution was built with Linx 5.21.
+- Install Linx Designer (https://linx.software) and open the solution "UpviseConnect". This solution was built with Linx 6.0.3.
 - You will need to provide the following Settings: "UpviseEmail" and "UpvisePassword".
 - Download the SDK from the github link above and extract it on your computer. Then you will need to provide the DLL path in the setting "UpviseDLLPath"
 
