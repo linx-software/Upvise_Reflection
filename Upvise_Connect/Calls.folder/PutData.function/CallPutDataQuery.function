@@ -1,0 +1,84 @@
+{
+  "Properties": [
+    {
+      "Id": "table",
+      "Type": "Compiled:String",
+      "ValueUsage": "RuntimeRead",
+      "Value": {
+        "Expression": "$.Parameters.table",
+        "CompiledExpression": "={0}",
+        "Type": "Compiled:String"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    },
+    {
+      "Id": "token",
+      "Type": "Compiled:String",
+      "ValueUsage": "RuntimeRead",
+      "Value": {
+        "Expression": "GetToken",
+        "CompiledExpression": "={0}",
+        "Type": "Compiled:String"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    },
+    {
+      "Id": "MethodBody",
+      "Type": "Compiled:String",
+      "ValueUsage": "DesignTime",
+      "Value": "object querytocall = null;\r\n            \r\n                var serviceStackAssembly = System.Reflection.Assembly.LoadFrom(DLLPath);\r\n                var QueryType = serviceStackAssembly.GetType(\"UpviseClient.Query\");\r\n                querytocall = Activator.CreateInstance(QueryType, new[] { token, url });\r\n\r\n                var insertMethod = QueryType.GetMethod(\"insert\");\r\n                var JSONType = serviceStackAssembly.GetType(\"UpviseClient.JSONObject\");\r\n\r\n\t\t  var JSONObjToSend = Activator.CreateInstance(JSONType, new[] { JSONString });\r\n          \r\n                 var insertreturn = insertMethod.Invoke(querytocall, new object[] { table, JSONObjToSend });\r\n\r\n                string IsSuccess = \"Done\";\r\n           \r\n              \r\n\r\n    return IsSuccess;"
+    },
+    {
+      "Id": "url",
+      "Type": "Compiled:String",
+      "ValueUsage": "RuntimeRead",
+      "Value": {
+        "Expression": "$.Settings.UpviseURL",
+        "CompiledExpression": "={0}",
+        "Type": "Compiled:String"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    },
+    {
+      "Id": "DLLPath",
+      "Type": "Compiled:String",
+      "ValueUsage": "RuntimeRead",
+      "Value": {
+        "Expression": "$.Settings.UpviseDLLPath",
+        "CompiledExpression": "={0}",
+        "Type": "Compiled:String"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    },
+    {
+      "Id": "ErrorMessage",
+      "Type": "Compiled:String",
+      "ValueUsage": "DesignTime",
+      "Value": null
+    },
+    {
+      "Id": "JSONString",
+      "Type": "Compiled:String",
+      "ValueUsage": "RuntimeRead",
+      "Value": {
+        "Expression": "$.Parameters.JSONString",
+        "CompiledExpression": "={0}",
+        "Type": "Compiled:String"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    },
+    {
+      "Id": "IsCodeValid",
+      "Type": "Compiled:Boolean",
+      "ValueUsage": "DesignTime",
+      "Value": true
+    },
+    {
+      "Id": "Function         ​",
+      "Type": "Compiled:String",
+      "ValueUsage": "DesignTime",
+      "Value": "string Function(string token, string url, string JSONString, string table, string DLLPath)\r\n{\r\n     object querytocall = null;\r\n            \r\n                var serviceStackAssembly = System.Reflection.Assembly.LoadFrom(DLLPath);\r\n                var QueryType = serviceStackAssembly.GetType(\"UpviseClient.Query\");\r\n                querytocall = Activator.CreateInstance(QueryType, new[] { token, url });\r\n\r\n                var insertMethod = QueryType.GetMethod(\"insert\");\r\n                var JSONType = serviceStackAssembly.GetType(\"UpviseClient.JSONObject\");\r\n\r\n\t\t  var JSONObjToSend = Activator.CreateInstance(JSONType, new[] { JSONString });\r\n          \r\n                 var insertreturn = insertMethod.Invoke(querytocall, new object[] { table, JSONObjToSend });\r\n\r\n                string IsSuccess = \"Done\";\r\n           \r\n              \r\n\r\n    return IsSuccess;\r\n    \r\n}"
+    }
+  ],
+  "Result": "Compiled:String"
+}

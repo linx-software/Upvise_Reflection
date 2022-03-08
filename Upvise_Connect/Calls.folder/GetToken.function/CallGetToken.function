@@ -1,0 +1,62 @@
+{
+  "Properties": [
+    {
+      "Id": "password",
+      "Type": "Compiled:String",
+      "ValueUsage": "RuntimeRead",
+      "Value": {
+        "Expression": "$.Settings.UpvisePassword",
+        "CompiledExpression": "={0}",
+        "Type": "Compiled:String"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    },
+    {
+      "Id": "MethodBody",
+      "Type": "Compiled:String",
+      "ValueUsage": "DesignTime",
+      "Value": "object querytocall = null;\r\n            object querytogetToken = null;\r\n     \r\n               \r\n\r\n                var serviceStackAssembly = System.Reflection.Assembly.LoadFrom(DLLPath);\r\n                var QueryType = serviceStackAssembly.GetType(\"UpviseClient.Query\");\r\n                querytocall = Activator.CreateInstance(QueryType, new[] { \"\", \"https://www.upvise.com/uws\" });\r\n                var loginMethod = QueryType.GetMethod(\"login\", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public,null,new Type[] { typeof(string), typeof(string) }, null);\r\n\r\n                querytogetToken = Activator.CreateInstance(QueryType, new[] { \"\", \"https://www.upvise.com/uws\" });\r\n                querytogetToken = loginMethod.Invoke(querytocall, new object[] { email, password });\r\n\r\n                var tokenGetter = QueryType.GetMethod(\"getToken\");\r\n\r\n                string token = (string)tokenGetter.Invoke(querytogetToken, new object[] {});\r\n\r\n                return token ;"
+    },
+    {
+      "Id": "DLLPath",
+      "Type": "Compiled:String",
+      "ValueUsage": "RuntimeRead",
+      "Value": {
+        "Expression": "$.Settings.UpviseDLLPath",
+        "CompiledExpression": "={0}",
+        "Type": "Compiled:String"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    },
+    {
+      "Id": "email",
+      "Type": "Compiled:String",
+      "ValueUsage": "RuntimeRead",
+      "Value": {
+        "Expression": "$.Settings.UpviseEmail",
+        "CompiledExpression": "={0}",
+        "Type": "Compiled:String"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    },
+    {
+      "Id": "ErrorMessage",
+      "Type": "Compiled:String",
+      "ValueUsage": "DesignTime",
+      "Value": null
+    },
+    {
+      "Id": "IsCodeValid",
+      "Type": "Compiled:Boolean",
+      "ValueUsage": "DesignTime",
+      "Value": true
+    },
+    {
+      "Id": "Function         ​",
+      "Type": "Compiled:String",
+      "ValueUsage": "DesignTime",
+      "Value": "string Function(string email, string password, string DLLPath)\r\n{\r\n            object querytocall = null;\r\n            object querytogetToken = null;\r\n     \r\n               \r\n\r\n                var serviceStackAssembly = System.Reflection.Assembly.LoadFrom(DLLPath);\r\n                var QueryType = serviceStackAssembly.GetType(\"UpviseClient.Query\");\r\n                querytocall = Activator.CreateInstance(QueryType, new[] { \"\", \"https://www.upvise.com/uws\" });\r\n                var loginMethod = QueryType.GetMethod(\"login\", System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public,null,new Type[] { typeof(string), typeof(string) }, null);\r\n\r\n                querytogetToken = Activator.CreateInstance(QueryType, new[] { \"\", \"https://www.upvise.com/uws\" });\r\n                querytogetToken = loginMethod.Invoke(querytocall, new object[] { email, password });\r\n\r\n                var tokenGetter = QueryType.GetMethod(\"getToken\");\r\n\r\n                string token = (string)tokenGetter.Invoke(querytogetToken, new object[] {});\r\n\r\n                return token ;\r\n            \r\n\r\n  \r\n}"
+    }
+  ],
+  "Result": "Compiled:String"
+}

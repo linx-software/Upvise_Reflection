@@ -1,0 +1,26 @@
+{
+  "Properties": [
+    {
+      "Id": "Target",
+      "Type": "Compiled:DateTime",
+      "ValueUsage": "RuntimeWrite",
+      "Value": {
+        "Expression": "$.Result",
+        "CompiledExpression": "={0}",
+        "Type": "Compiled:DateTime"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    },
+    {
+      "Id": "Source",
+      "Type": "Compiled:DateTime",
+      "ValueUsage": "RuntimeRead",
+      "Value": {
+        "Expression": "DateTime.AddMilliseconds($.Parameters.DateInt)",
+        "CompiledExpression": "={1}.AddMilliseconds({0})",
+        "Type": "Compiled:DateTime"
+      },
+      "ValueType": "Linx.CSharpExpression"
+    }
+  ]
+}

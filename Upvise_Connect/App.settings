@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "Lvcq",
+    "Name": "UpviseDLLPath",
+    "Type": "Compiled:String",
+    "Value": "C:\\UpviseSDK-master\\Upvise Client Library\\UpviseClient.dll"
+  },
+  {
+    "Id": "HLYK",
+    "Name": "UpviseEmail",
+    "Type": "Compiled:String",
+    "Secret": true
+  },
+  {
+    "Id": "T4j8",
+    "Name": "UpvisePassword",
+    "Type": "Compiled:String",
+    "Secret": true
+  },
+  {
+    "Id": "iZjt",
+    "Name": "UpviseURL",
+    "Type": "Compiled:String",
+    "Value": "https://www.upvise.com/uws"
+  }
+]
